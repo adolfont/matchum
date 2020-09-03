@@ -13,10 +13,10 @@ defmodule Matchum.Game.Board do
   end
 
   def move(board, guess) do
-    %{board | guesses: [guess | board.guesses]}
+    %__MODULE__{board | guesses: [guess | board.guesses]}
   end
 
-  defp won?(%{guesses: [last_guess | _], answer: last_guess}), do: true
+  defp won?(%__MODULE__{guesses: [last_guess | _], answer: last_guess}), do: true
 
   defp won?(_), do: false
 
